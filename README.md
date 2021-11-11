@@ -4,7 +4,7 @@ The first thing I would want to do for this application, is to seperate the vari
 
 The components I would make are the following:
 1. A component for the "What needs to be done?" input field at the top, to recieve this input and add it to the appropriate list(s) displayed below on the screen. 
-2. A component for the three list options. I would make this component take the input of whichever button was pressed, and return the appropriate list of tasks. It would need to be be updated with the most recent additions and properly display the checked or unchecked box to denote the completion of a task.
+2. A component for the three list options. I would make this component take the input of whichever button was pressed, and return the appropriate list of tasks. There would be some functionality that adds the "toggle-btn" class to the tag to ensure the proper styling is achieved. It would also need to be be updated with the most recent additions and properly display the checked or unchecked box to denote the completion of a task.
     2.a. Perhaps the management of the checkboxes could be a component of it's own, but from my current perspective, it would seem to be easier to contain it in the same component that loads the lists.
 3. A component that accurately displays the correct number of posts for each list. Could even list the number of tasks total, tasks completed, and tasks uncompleted.
 4. A component for the editing of a task's text.
