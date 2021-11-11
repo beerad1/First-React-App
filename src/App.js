@@ -1,9 +1,9 @@
-// These are the imported functions for this module. The logo import seems to be deprecated, so it could probably be removed.
+// These are the imported functions for this module. The logo import seems to be deprecated, so it could probably be removed, or in the future it could be made relevant by utilizing it in the application. Though this could possibly be better implemented through a component.
 import logo from './logo.svg';
 import './App.css';
-// This is the start of the main function of the application, known as a component. Notably, it is not an IIFE like in the Twitter Clone's "main.js". It passes an unused arbitrary argument, a prop called "props". It's function seems to be to construct teh html of the page when called, as per the export at the bottom of the page.
+// This is the start of the main function of the application, known as a component. Notably, it is not an IIFE like in the Twitter Clone's "main.js". It passes an unused arbitrary argument, a prop called "props". It's function seems to be to construct the html of the page when called, as per the export at the bottom of the page.
 function App(props) {
-  // Upon executing, the returned info will be the following html code, presumably to display toteh page.
+  // Upon executing, the returned info will be the following html code, presumably to display to the page.
   return (
     // This div contains the entirety of the app display. The two classes appear to be used for CSS in App.css and index.css.
     <div className="todoapp stack-large">
@@ -35,7 +35,7 @@ function App(props) {
       </form>
       {/* This is beginning of the section with three buttons for All tasks, Active tasks, and Completed tasks. It's worth noting again that in many of these tags there are ids or classes mentioned that are not referenced. This is likely to allow for an easier time of targeting these elements in the future. */}
       <div className="filters btn-group stack-exception">
-        {/* This is the button for displaying All tasks. Currently the CSS for "btn" changes "all" to be capitalized, and "toggle-btn" makes it underlined to denote selection. It should be noted that the same classes and type are set for each button, but the aria information is set to true only for the All tasks button, as it is the only that s currently displayed. */}
+        {/* This is the button for displaying All tasks. Currently the CSS for "btn" changes "all" to be capitalized, and "toggle-btn" makes it underlined to denote selection. It should be noted that the same classes and type are set for each button, but the aria information is set to true only for the All tasks button, as it is the one that is currently displayed. */}
         <button type="button" className="btn toggle-btn" aria-pressed="true">
           {/* I am not fully sure why these "visually-hidden" spans exist around the main span that denotes the name of the button, but if I had to speculate, I would say that they exist for visually impaired users utilizing a reader of some kind. "Show all tasks" is far more intelligable for a visually impaired user than simply "all" */}
           <span className="visually-hidden">Show </span>
@@ -46,14 +46,14 @@ function App(props) {
         {/* The first button following this comment is the Active tasks button, and the second is the Completed tasks button. These two buttons both follow the same description as the previous, except for their aria-pressed value being false, as the only one currently set to display is the first All tasks button. */}
         <button type="button" className="btn toggle-btn" aria-pressed="false">
           <span className="visually-hidden">Show </span>
-          {/* Despite the namebeing capitalized, it could be lower case and still function thanks to the "btn" CSS */}
+          {/* Despite the name being capitalized, it could be lower case and still function thanks to the "btn" CSS */}
           <span>Active</span>
           <span className="visually-hidden"> tasks</span>
         </button>
         {/* See the commment above the opening button tag for the Active tasks button. */}
         <button type="button" className="btn toggle-btn" aria-pressed="false">
           <span className="visually-hidden">Show </span>
-          {/* Despite the namebeing capitalized, it could be lower case and still function thanks to the "btn" CSS */}
+          {/* Despite the name being capitalized, it could be lower case and still function thanks to the "btn" CSS */}
           <span>Completed</span>
           <span className="visually-hidden"> tasks</span>
         </button>
@@ -62,7 +62,7 @@ function App(props) {
       <h2 id="list-heading">
         3 tasks remaining
       </h2>
-      {/* This is an unordered list to containt eh list of tasks, and the various elements per task that must be available tothe user. */}
+      {/* This is an unordered list to contain the list of tasks, and the various elements per task that must be available to the user. */}
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
@@ -72,7 +72,7 @@ function App(props) {
         <li className="todo stack-small">
           {/* This div contains the checkbox for the task, and the name of the task itself. */}
           <div className="c-cb">
-            {/* It is notable that the checkbox is set to display as checked, by default. This is likely for display purposes, and would need to be rectified for future use. Although this could be a meaningful method to store this information about the list tasks for future use. */}
+            {/* It is notable that the checkbox is set to display as checked, by default. This is likely for display purposes, and would need to be rectified for interactivity. Although this could be a meaningful method to store this information about the list tasks for future use. */}
             <input id="todo-0" type="checkbox" defaultChecked={true} />
             {/* Label for the Eat task */}
             <label className="todo-label" htmlFor="todo-0">
@@ -137,5 +137,5 @@ function App(props) {
     </div>
   );
 }
-// This exports the App function so that it may be used elsewhere in the application.
+// This exports the "App" function so that it may be used elsewhere in the application.
 export default App;
