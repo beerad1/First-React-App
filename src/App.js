@@ -28,59 +28,81 @@ function App(props) {
           /* This prevents the suggestion of autocompleted inputs in the user's browser when entering this input. */
           autoComplete="off"
         />
-        {/* This is the first button displayed on the app, and is responsible for allowing the submission of additions to the TODO */}
+        {/* This is the first button displayed on the app, and is responsible for allowing the submission of additions to the Todo list */}
         <button type="submit" className="btn btn__primary btn__lg">
           Add
         </button>
       </form>
+      {/* This is beginning of the section with three buttons for All tasks, Active tasks, and Completed tasks. It's worth noting again that in many of these tags there are ids or classes mentioned that are not referenced. This is likely to allow for an easier time of targeting these elements in the future. */}
       <div className="filters btn-group stack-exception">
+        {/* This is the button for displaying All tasks. Currently the CSS for "btn" changes "all" to be capitalized, and "toggle-btn" makes it underlined to denote selection. It should be noted that the same classes and type are set for each button, but the aria information is set to true only for the All tasks button, as it is the only that s currently displayed. */}
         <button type="button" className="btn toggle-btn" aria-pressed="true">
+          {/* I am not fully sure why these "visually-hidden" spans exist around the main span that denotes the name of the button, but if I had to speculate, I would say that they exist for visually impaired users utilizing a reader of some kind. "Show all tasks" is far more intelligable for a visually impaired user than simply "all" */}
           <span className="visually-hidden">Show </span>
+          {/* Again, this is modified through the CSS for "btn" and "toggle-btn". */}
           <span>all</span>
           <span className="visually-hidden"> tasks</span>
         </button>
+        {/* The first button following this comment is the Active tasks button, and the second is the Completed tasks button. These two buttons both follow the same description as the previous, except for their aria-pressed value being false, as the only one currently set to display is the first All tasks button. */}
         <button type="button" className="btn toggle-btn" aria-pressed="false">
           <span className="visually-hidden">Show </span>
+          {/* Despite the namebeing capitalized, it could be lower case and still function thanks to the "btn" CSS */}
           <span>Active</span>
           <span className="visually-hidden"> tasks</span>
         </button>
+        {/* See the commment above the opening button tag for the Active tasks button. */}
         <button type="button" className="btn toggle-btn" aria-pressed="false">
           <span className="visually-hidden">Show </span>
+          {/* Despite the namebeing capitalized, it could be lower case and still function thanks to the "btn" CSS */}
           <span>Completed</span>
           <span className="visually-hidden"> tasks</span>
         </button>
       </div>
+      {/* This heading denotes the number of tasks remaining. This could easily be changed to show more info and be actively updated within a component. See README.md for more thoughts on this. */}
       <h2 id="list-heading">
         3 tasks remaining
       </h2>
+      {/* This is an unordered list to containt eh list of tasks, and the various elements per task that must be available tothe user. */}
       <ul
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading"
       >
+        {/* This is the first list element, for the Eat task. */}
         <li className="todo stack-small">
+          {/* This div contains the checkbox for the task, and the name of the task itself. */}
           <div className="c-cb">
+            {/* It is notable that the checkbox is set to display as checked, by default. This is likely for display purposes, and would need to be rectified for future use. Although this could be a meaningful method to store this information about the list tasks for future use. */}
             <input id="todo-0" type="checkbox" defaultChecked={true} />
+            {/* Label for the Eat task */}
             <label className="todo-label" htmlFor="todo-0">
               Eat
             </label>
           </div>
+          {/* This div contains the Edit and Delete buttons for the task. */}
           <div className="btn-group">
+            {/* I believe that the hidden text within the spans of this section are again meant to be used for a reading program for the visually impaired, as "Edit" is not as specific as "Edit Eat". */}
             <button type="button" className="btn">
               Edit <span className="visually-hidden">Eat</span>
             </button>
+            {/* I believe the extra btn__danger class for the Delete buttons in this list are meant to be used later to warn the user and prevent accidental deletions. */}
             <button type="button" className="btn btn__danger">
               Delete <span className="visually-hidden">Eat</span>
             </button>
           </div>
         </li>
+        {/* This is the second list element, for the Sleep task. */}
         <li className="todo stack-small">
+          {/* This div contains the checkbox for the task, and the name of the task itself. */}
           <div className="c-cb">
+            {/* This task's input tag for the checkbox does not contain a defaultChecked attribute, and so it displays empty until clicked, thus checking it. */}
             <input id="todo-1" type="checkbox" />
+            {/* Label for the Sleep task */}
             <label className="todo-label" htmlFor="todo-1">
               Sleep
             </label>
           </div>
+          {/* This div contains the Edit and Delete buttons for the task. */}
           <div className="btn-group">
             <button type="button" className="btn">
               Edit <span className="visually-hidden">Sleep</span>
@@ -90,13 +112,18 @@ function App(props) {
             </button>
           </div>
         </li>
+        {/* This is the third list element, for the Repeat task. */}
         <li className="todo stack-small">
+          {/* This div contains the checkbox for the task, and the name of the task itself. */}
           <div className="c-cb">
+            {/* I should note that the id for these task input chechboxes are incrementing. This is something that can be done in the component/module used to display them to the screen, and keep the ids relatively unique in case of further manipulation later on. */}
             <input id="todo-2" type="checkbox" />
+            {/* Label for the Repeat task */}
             <label className="todo-label" htmlFor="todo-2">
               Repeat
             </label>
           </div>
+          {/* This div contains the Edit and Delete buttons for the task. */}
           <div className="btn-group">
             <button type="button" className="btn">
               Edit <span className="visually-hidden">Repeat</span>
@@ -110,5 +137,5 @@ function App(props) {
     </div>
   );
 }
-
+// This exports the App function so that it may be used elsewhere in the application.
 export default App;
