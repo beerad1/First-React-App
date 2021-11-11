@@ -1,70 +1,14 @@
-# Getting Started with Create React App
+Component based architecture is the breaking down of a greater application into smaller components that each perform key functions of the whole. In this way, it is very similar to the use of modules in JS. In React, a component will work like a single function that could be contained iwthin a module, being passed props (arbitrary values), and returning information or the elements themselves that should appear on the screen.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The first thing I would want to do for this application, is to seperate the various functions that would need to be created for the input buttons on the page into their own components. This way the functions can take the inputs of the various fields and buttons, perform the actions necessary to retrieve the data and/or manipulate the elements on screen, and return some data or display some elements.
 
-## Available Scripts
+The components I would make are the following:
+1. A component for the "What needs to be done?" input field at the top, to recieve this input and add it to the appropriate list(s) below. 
+2. A componenet for the three list options. I would make this component take the input of whichever button was pressed, and return the appropriate list of tasks. It would need to be be updated with the most recent additions and properly display the checked or unchecked box to denot the completion of a task.
+    2.a. Perhaps the management fo the checks could be a component of it's own, but from my current perspective, it would seem to be easier to contain it in the same component that loads the lists.
+3. A component that accurately displays the correct number of posts for each list. Could even list the number of tasks total, tasks completed, and tasks uncompleted.
+4. A component for the editing of tasks text.
+5. A component for the deletion of a tasks from a list.
+6. Possibly display the logo of the page on load, like a loading screen? Though this may be over diversification through abstraction, when the logo could simply be displayed on the page through static HTML.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I am sure there are other components that could be added to the app, but for now, these are the most important functions that can be compartmentalized.
