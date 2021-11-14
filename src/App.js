@@ -8,32 +8,51 @@ import Todo from "./components/Todo";
 import { nanoid } from "nanoid";
 // This is the start of the main function of the application, known as a component. Notably, it is not an IIFE like in the Twitter Clone's "main.js". It passes an unused arbitrary argument, a prop called "props". It's function seems to be to construct the html of the page when called, as per the export at the bottom of the page.
 
+const FILTER_MAP = {
+  All: () => true,
+  Active: task => !task.completed,
+  Completed: task => task.completed
+};
+
 function App(props) {
   function addTask(name) {
     const newTask = { id: "todo-" + nanoid(), name: name, completed: false };
     setTasks([...tasks, newTask]);
   }
+  const [filter, setFilter] = useState('All');
   const [tasks, setTasks] = useState(props.tasks);
   const taskList = tasks.map(task => (
     <Todo
-        id={task.id}
-        name={task.name}
-        completed={task.completed}
-        key={task.id}
-        toggleTaskCompleted={toggleTaskCompleted}
+      id={task.id}
+      name={task.name}
+      completed={task.completed}
+      key={task.id}
+      toggleTaskCompleted={toggleTaskCompleted}
+      deleteTask={deleteTask}
+      editTask={editTask}
     />
   ));
   function toggleTaskCompleted(id) {
     const updatedTasks = tasks.map(task => {
-      // if this task has the same ID as the edited task
       if (id === task.id) {
-        // use object spread to make a new object
-        // whose `completed` prop has been inverted
         return {...task, completed: !task.completed}
       }
       return task;
     });
     setTasks(updatedTasks);
+  }
+  function editTask(id, newName) {
+    const editedTaskList = tasks.map(task => {
+      if (id === task.id) {
+        return {...task, name: newName}
+      }
+      return task;
+    });
+    setTasks(editedTaskList);
+  }
+  function deleteTask(id) {
+    const remainingTasks = tasks.filter(task => id !== task.id);
+    setTasks(remainingTasks);
   }
   const tasksNoun = taskList.length !== 1 ? 'tasks' : 'task';
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
